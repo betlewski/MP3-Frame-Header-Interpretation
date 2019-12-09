@@ -75,18 +75,18 @@ public class Main {
                 }
 
                 if(end){
-                    b = toString(B);
-                    c = toString(C);
-                    d = toString(D);
-                    e = toString(E);
-                    f = toString(F);
-                    g = toString(G);
-                    h = toString(H);
-                    i = toString(I);
-                    j = toString(J);
-                    k = toString(K);
-                    l = toString(L);
-                    m = toString(M);
+                    b = toString(B, 2);
+                    c = toString(C, 2);
+                    d = toString(D, 1);
+                    e = toString(E, 4);
+                    f = toString(F, 2);
+                    g = toString(G, 1);
+                    h = toString(H, 1);
+                    i = toString(I, 2);
+                    j = toString(J, 2);
+                    k = toString(K, 1);
+                    l = toString(L, 1);
+                    m = toString(M, 2);
 
                     System.out.println("\nResults: ");
 
@@ -108,7 +108,7 @@ public class Main {
         }
     }
 
-    private static String toString(int value){
-        return String.format("%2s", Integer.toBinaryString(value)).replace(' ', '0');
+    private static String toString(int value, int number){
+        return String.format("%" + number + "s", Integer.toBinaryString(value)).replace(' ', '0');
     }
 }
