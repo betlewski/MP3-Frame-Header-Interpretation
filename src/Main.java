@@ -75,19 +75,18 @@ public class Main {
                 }
 
                 if(end){
-
-                    b = String.format("%2s", Integer.toBinaryString(B)).replace(' ', '0');
-                    c = String.format("%2s", Integer.toBinaryString(C)).replace(' ', '0');
-                    d = String.format("%1s", Integer.toBinaryString(D)).replace(' ', '0');
-                    e = String.format("%4s", Integer.toBinaryString(E)).replace(' ', '0');
-                    f = String.format("%2s", Integer.toBinaryString(F)).replace(' ', '0');
-                    g = String.format("%1s", Integer.toBinaryString(G)).replace(' ', '0');
-                    h = String.format("%1s", Integer.toBinaryString(H)).replace(' ', '0');
-                    i = String.format("%2s", Integer.toBinaryString(I)).replace(' ', '0');
-                    j = String.format("%2s", Integer.toBinaryString(J)).replace(' ', '0');
-                    k = String.format("%1s", Integer.toBinaryString(K)).replace(' ', '0');
-                    l = String.format("%1s", Integer.toBinaryString(L)).replace(' ', '0');
-                    m = String.format("%2s", Integer.toBinaryString(M)).replace(' ', '0');
+                    b = toString(B);
+                    c = toString(C);
+                    d = toString(D);
+                    e = toString(E);
+                    f = toString(F);
+                    g = toString(G);
+                    h = toString(H);
+                    i = toString(I);
+                    j = toString(J);
+                    k = toString(K);
+                    l = toString(L);
+                    m = toString(M);
 
                     System.out.println("\nResults: ");
 
@@ -96,29 +95,7 @@ public class Main {
 
                     break;
                 }
-
-                /*pos++;
-
-                tab[0] = content & 255;
-                tab[1] = (content >> 8) & 255;
-                tab[2] = (content >> 16) & 255;
-                tab[3] = (content >> 24) & 255;
-
-                System.out.println(content);
-                System.out.println(tab[3] + " " + tab[2] + " " + tab[1] + " " + tab[0]);
-
-                if(tab[0] == 255){
-                    int second = (tab[1] >> 5) & 7;
-                    System.out.println(tab[1]);
-                    System.out.println(second);
-
-                    if(second == 7){
-                        System.out.println("yes");
-                        break;
-                    }
-                }*/
             }
-
         } catch (IOException ioe) {
             ioe.printStackTrace();
         } finally {
@@ -131,5 +108,7 @@ public class Main {
         }
     }
 
-
+    private static String toString(int value){
+        return String.format("%2s", Integer.toBinaryString(value)).replace(' ', '0');
+    }
 }
