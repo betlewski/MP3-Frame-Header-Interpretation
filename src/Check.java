@@ -139,47 +139,267 @@ public class Check {
                 break;
 
             case "0100":
+                if(b.equals("11")){
+                    switch (c) {
+                        case "11":
+                            System.out.println("128");
+                            break;
+                        case "10":
+                            System.out.println("64");
+                            break;
+                        case "01":
+                            System.out.println("56");
+                            break;
+                    }
+                }
+                else if(b.equals("00") || b.equals("10")){
 
+                    if(c.equals("11"))
+                        System.out.println("64");
+
+                    else if(c.equals("10") || c.equals("01"))
+                        System.out.println("32");
+                }
                 break;
 
             case "0101":
+                if(b.equals("11")){
+                    switch (c) {
+                        case "11":
+                            System.out.println("160");
+                            break;
+                        case "10":
+                            System.out.println("80");
+                            break;
+                        case "01":
+                            System.out.println("64");
+                            break;
+                    }
+                }
+                else if(b.equals("00") || b.equals("10")){
 
+                    if(c.equals("11"))
+                        System.out.println("80");
+
+                    else if(c.equals("10") || c.equals("01"))
+                        System.out.println("40");
+                }
                 break;
 
             case "0110":
+                if(b.equals("11")){
+                    switch (c) {
+                        case "11":
+                            System.out.println("192");
+                            break;
+                        case "10":
+                            System.out.println("96");
+                            break;
+                        case "01":
+                            System.out.println("80");
+                            break;
+                    }
+                }
+                else if(b.equals("00") || b.equals("10")){
 
+                    if(c.equals("11"))
+                        System.out.println("96");
+
+                    else if(c.equals("10") || c.equals("01"))
+                        System.out.println("48");
+                }
                 break;
 
             case "0111":
+                if(b.equals("11")){
+                    switch (c) {
+                        case "11":
+                            System.out.println("224");
+                            break;
+                        case "10":
+                            System.out.println("112");
+                            break;
+                        case "01":
+                            System.out.println("96");
+                            break;
+                    }
+                }
+                else if(b.equals("00") || b.equals("10")){
 
+                    if(c.equals("11"))
+                        System.out.println("112");
+
+                    else if(c.equals("10") || c.equals("01"))
+                        System.out.println("56");
+                }
                 break;
 
             case "1000":
+                if(b.equals("11")){
+                    switch (c) {
+                        case "11":
+                            System.out.println("256");
+                            break;
+                        case "10":
+                            System.out.println("128");
+                            break;
+                        case "01":
+                            System.out.println("112");
+                            break;
+                    }
+                }
+                else if(b.equals("00") || b.equals("10")){
 
+                    if(c.equals("11"))
+                        System.out.println("128");
+
+                    else if(c.equals("10") || c.equals("01"))
+                        System.out.println("64");
+                }
                 break;
 
             case "1001":
+                if(b.equals("11")){
+                    switch (c) {
+                        case "11":
+                            System.out.println("288");
+                            break;
+                        case "10":
+                            System.out.println("160");
+                            break;
+                        case "01":
+                            System.out.println("128");
+                            break;
+                    }
+                }
+                else if(b.equals("00") || b.equals("10")){
 
+                    if(c.equals("11"))
+                        System.out.println("144");
+
+                    else if(c.equals("10") || c.equals("01"))
+                        System.out.println("80");
+                }
                 break;
 
             case "1010":
+                if(b.equals("11")){
+                    switch (c) {
+                        case "11":
+                            System.out.println("320");
+                            break;
+                        case "10":
+                            System.out.println("192");
+                            break;
+                        case "01":
+                            System.out.println("160");
+                            break;
+                    }
+                }
+                else if(b.equals("00") || b.equals("10")){
 
+                    if(c.equals("11"))
+                        System.out.println("160");
+
+                    else if(c.equals("10") || c.equals("01"))
+                        System.out.println("96");
+                }
                 break;
 
             case "1011":
+                if(b.equals("11")){
+                    switch (c) {
+                        case "11":
+                            System.out.println("352");
+                            break;
+                        case "10":
+                            System.out.println("224");
+                            break;
+                        case "01":
+                            System.out.println("192");
+                            break;
+                    }
+                }
+                else if(b.equals("00") || b.equals("10")){
 
+                    if(c.equals("11"))
+                        System.out.println("176");
+
+                    else if(c.equals("10") || c.equals("01"))
+                        System.out.println("112");
+                }
                 break;
 
             case "1100":
+                if(b.equals("11")){
+                    switch (c) {
+                        case "11":
+                            System.out.println("384");
+                            break;
+                        case "10":
+                            System.out.println("256");
+                            break;
+                        case "01":
+                            System.out.println("224");
+                            break;
+                    }
+                }
+                else if(b.equals("00") || b.equals("10")){
 
+                    if(c.equals("11"))
+                        System.out.println("192");
+
+                    else if(c.equals("10") || c.equals("01"))
+                        System.out.println("128");
+                }
                 break;
 
             case "1101":
+                if(b.equals("11")){
+                    switch (c) {
+                        case "11":
+                            System.out.println("416");
+                            break;
+                        case "10":
+                            System.out.println("320");
+                            break;
+                        case "01":
+                            System.out.println("256");
+                            break;
+                    }
+                }
+                else if(b.equals("00") || b.equals("10")){
 
+                    if(c.equals("11"))
+                        System.out.println("224");
+
+                    else if(c.equals("10") || c.equals("01"))
+                        System.out.println("144");
+                }
                 break;
 
             case "1110":
+                if(b.equals("11")){
+                    switch (c) {
+                        case "11":
+                            System.out.println("448");
+                            break;
+                        case "10":
+                            System.out.println("384");
+                            break;
+                        case "01":
+                            System.out.println("320");
+                            break;
+                    }
+                }
+                else if(b.equals("00") || b.equals("10")){
 
+                    if(c.equals("11"))
+                        System.out.println("256");
+
+                    else if(c.equals("10") || c.equals("01"))
+                        System.out.println("160");
+                }
                 break;
 
             case "1111":
