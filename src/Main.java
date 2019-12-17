@@ -11,7 +11,6 @@ public class Main {
 
         boolean first = false;
         boolean second = false;
-        boolean end = false;
 
         int state = 1;
 
@@ -45,6 +44,9 @@ public class Main {
                 if(second){
 
                     switch(state){
+                        case 0:
+                            break;
+
                         case 1:
                             B = (content >> 3) & 3;
                             C = (content >> 1) & 3;
@@ -69,46 +71,51 @@ public class Main {
                             L = (content >> 2) & 1;
                             M = content & 3;
 
-                            end = true;
+                            state = 4;
+                            break;
+
+                        case 4:
+                            b = toString(B, 2);
+                            c = toString(C, 2);
+                            d = toString(D, 1);
+                            e = toString(E, 4);
+                            f = toString(F, 2);
+                            g = toString(G, 1);
+                            h = toString(H, 1);
+                            i = toString(I, 2);
+                            j = toString(J, 2);
+                            k = toString(K, 1);
+                            l = toString(L, 1);
+                            m = toString(M, 2);
+
+                            System.out.println("\nResults: ");
+
+                            Check check = new Check();
+                            check.checkAll(b, c, d, e, f, g, h, i, j, k, l, m);
+
+                            state = 0;
                             break;
                     }
                 }
-
-                if(end){
-                    b = toString(B, 2);
-                    c = toString(C, 2);
-                    d = toString(D, 1);
-                    e = toString(E, 4);
-                    f = toString(F, 2);
-                    g = toString(G, 1);
-                    h = toString(H, 1);
-                    i = toString(I, 2);
-                    j = toString(J, 2);
-                    k = toString(K, 1);
-                    l = toString(L, 1);
-                    m = toString(M, 2);
-
-                    System.out.println("\nResults: ");
-
-                    Check check = new Check();
-                    check.checkAll(b, c, d, e, f, g, h, i, j, k, l, m);
-
-                    break;
-                }
             }
-        } catch (IOException ioe) {
+        }
+        catch (IOException ioe) {
             ioe.printStackTrace();
-        } finally {
+        }
+        finally {
             try {
                 if (fis != null)
                     fis.close();
-            } catch (IOException ex) {
+            }
+            catch (IOException ex) {
                 ex.printStackTrace();
             }
         }
     }
 
     private static String toString(int value, int number){
-        return String.format("%" + number + "s", Integer.toBinaryString(value)).replace(' ', '0');
+
+        return String.format("%" + number + "s", Integer.toBinaryString(value))
+                .replace(' ', '0');
     }
 }
