@@ -4,20 +4,30 @@ import java.io.IOException;
 
 public class Main {
 
-    //found frame header:
-    //11111111 11111011 10010010 01000000
-
     public static void main(String[] args){
+
+        //flags:
+        boolean flag = false;
+        boolean flag2 = false;
+        boolean start = true;
 
         boolean first = false;
         boolean second = false;
 
         int state = 1;
 
+        //tables for ID3 tags:
+        int[] tab = new int[128];
+        int posTab = 0;
+
+        int[] tab2 = new int[10];
+        int posTab2 = 0;
+
+        //parts of frame header:
         int B = 0, C = 0, D = 0, E = 0, F = 0, G = 0, H = 0, I = 0, J = 0, K = 0, L = 0, M = 0;
         String b, c, d, e, f, g, h, i, j, k, l, m;
 
-        File file = new File("sound.mp3");
+        File file = new File("sound2.mp3");
         FileInputStream fis = null;
 
         try {
@@ -28,18 +38,60 @@ public class Main {
 
             int content;
             int pos = -1;
+            int findPos = fis.available() - 128;
 
             while ((content = fis.read()) != -1) {
                 pos++;
 
-                if(!first && content == 255){
-                    first = true;
+                //checking data for ID3v1 tag:
+                if (pos == findPos)
+                    flag = true;
+
+
+                if (flag) {
+                    tab[posTab] = content;
+                    posTab++;
+
+                    if(posTab > 127){
+                        flag = false;
+
+                        Tag tag = new Tag();
+                        tag.id3V1(tab);
+                        tag.checkV1();
+                    }
                 }
 
-                else if(first && !second && ((content >> 5) & 7) == 7){
-                    second = true;
-                    System.out.println("Position of the first byte of frame header: " + (pos - 1) + " byte");
+                //checking data for ID3v2 tag:
+                if (start) {
+                    start = false;
+                    flag2 = true;
                 }
+
+                if (flag2) {
+                    tab2[posTab2] = content;
+                    posTab2++;
+
+                    if(posTab2 > 9){
+                        flag2 = false;
+
+                        Tag tag = new Tag();
+                        tag.id3V2(tab2);
+                        tag.checkV2();
+                    }
+                }
+
+                //checking frame header:
+                if(!first && content == 255)
+                    first = true;
+
+
+                else if(first && !second && ((content >> 5) & 7) == 7)
+                    second = true;
+
+
+                else
+                    first = false;
+
 
                 if(second){
 
@@ -88,7 +140,7 @@ public class Main {
                             l = toString(L, 1);
                             m = toString(M, 2);
 
-                            System.out.println("\nResults: ");
+                            System.out.println("\nFrame header results: ");
 
                             Check check = new Check();
                             check.checkAll(b, c, d, e, f, g, h, i, j, k, l, m);
