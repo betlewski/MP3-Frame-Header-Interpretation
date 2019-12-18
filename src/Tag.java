@@ -47,11 +47,21 @@ public class Tag {
         if ((char) tab[0] == 'I' && (char) tab[1] == 'D' && (char) tab[2] == '3') {
 
             isPresentV2 = true;
-            version = tab[3] + "." + tab[4];
+            version = "ID3v2." + tab[3] + "." + tab[4];
 
-            //TODO:
-            for(int i = 6; i < 10; i++)
-                size += tab[i];
+            String bin;
+            String all = "";
+
+            for(int i = 6; i < 10; i++) {
+
+                tab[i] &= 0b01111111;
+                bin = String.format("%7s", Integer.toBinaryString(tab[i]))
+                        .replace(' ', '0');
+
+                all += bin;
+            }
+
+            size = Integer.parseInt(all, 2);
         }
     }
 
