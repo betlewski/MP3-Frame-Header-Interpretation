@@ -49,19 +49,17 @@ public class Tag {
             isPresentV2 = true;
             version = "ID3v2." + tab[3] + "." + tab[4];
 
-            String bin;
-            String all = "";
+            int value = 0;
 
             for(int i = 6; i < 10; i++) {
 
                 tab[i] &= 0b01111111;
-                bin = String.format("%7s", Integer.toBinaryString(tab[i]))
-                        .replace(' ', '0');
+                tab[i] <<= (9 - i) * 7;
 
-                all += bin;
+                value |= tab[i];
             }
 
-            size = Integer.parseInt(all, 2);
+            size = value;
         }
     }
 
